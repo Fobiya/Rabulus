@@ -33,6 +33,25 @@ $(document).ready(function() {
 		});
     	return false;
     });
+	$('a.Our-founders').click(function(){
+    	$('html, body').animate({
+    		scrollTop:$('#Our-founders').offset().top
+    	}, 1000, function() {
+	    	parallaxScroll(); // Callback is required for iOS
+		});
+    	return false;
+    });
+	
+	$('a.Why-Rabulus').click(function(){
+    	$('html, body').animate({
+    		scrollTop:$('#Why-Rabulus').offset().top
+    	}, 1000, function() {
+	    	parallaxScroll(); // Callback is required for iOS
+		});
+    	return false;
+    });
+	
+	
 	$('a.about').click(function(){
     	$('html, body').animate({
     		scrollTop:$('#about').offset().top
@@ -67,8 +86,10 @@ function redrawDotNav(){
 	var section1Top =  0;
 	// The top of each section is offset by half the distance to the previous section.
 	var section2Top =  $('#frameless-parachute').offset().top - (($('#english-channel').offset().top - $('#frameless-parachute').offset().top) / 2);
-	var section3Top =  $('#english-channel').offset().top - (($('#about').offset().top - $('#english-channel').offset().top) / 2);
-var section4Top =  $('#about').offset().top - (($('#primary').offset().top - $('#about').offset().top) / 2);
+	var section3Top =  $('#english-channel').offset().top - (($('#Our-founders').offset().top - $('#english-channel').offset().top) / 2);
+	var section4Top =  $('#Our-founders').offset().top - (($('#Why-Rabulus').offset().top - $('#Our-founders').offset().top) / 2);
+	var section5Top =  $('#Why-Rabulus').offset().top - (($('#about').offset().top - $('#Why-Rabulus').offset().top) / 2);
+	var section6Top =  $('#about').offset().top - (($('#primary').offset().top) / 2);
 	$('nav#primary a').removeClass('active');
 	if($(document).scrollTop() >= section1Top && $(document).scrollTop() < section2Top){
 		$('nav#primary a.manned-flight').addClass('active');
@@ -76,7 +97,14 @@ var section4Top =  $('#about').offset().top - (($('#primary').offset().top - $('
 		$('nav#primary a.frameless-parachute').addClass('active');
 	} else if ($(document).scrollTop() >= section3Top && $(document).scrollTop() < section4Top){
 		$('nav#primary a.english-channel').addClass('active');
-	} else if ($(document).scrollTop() >= section4Top){
+		
+	} else if ($(document).scrollTop() >= section4Top && $(document).scrollTop() < section5Top){
+		$('nav#primary a.Our-founders').addClass('active');
+		
+	} else if ($(document).scrollTop() >= section5Top && $(document).scrollTop() < section6Top){
+		$('nav#primary a.Why-Rabulus').addClass('active');
+		
+	} else if ($(document).scrollTop() >= section6Top){
 		$('nav#primary a.about').addClass('active');
 	}
 	

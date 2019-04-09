@@ -129,3 +129,16 @@ function set(obj) {var id=obj.title; $('.pacet').val(id);}
 function setbtn(obj) {var id=obj.title; $('.pacet').val("Кнопка: " + id);}
 
 
+
+$(document).one("mouseleave", function (e) {               
+       if (e.pageY - $(window).scrollTop() <= 1) { 
+	   
+            $('#modal_top').addClass('md-show');  
+
+			
+       }
+});
+
+$(".md-close").click(function(){
+ $("div.md-show").removeClass('md-show');
+ });
